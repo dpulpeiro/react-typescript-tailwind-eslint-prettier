@@ -13,7 +13,6 @@ ENV USER_GID=$USER_GID
 
 RUN apt-get update && \
     apt-get install -y git curl zsh wget && \
-
     apt-get autoremove -y && \
     apt-get clean -y && \
     rm -rf /var/lib/apt/lists/*
@@ -28,7 +27,3 @@ USER $USER_NAME
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.1/zsh-in-docker.sh)" -t agnoster
 
 WORKDIR /app
-
-COPY package*.json .
-
-RUN npm install
